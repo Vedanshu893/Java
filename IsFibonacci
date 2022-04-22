@@ -1,0 +1,33 @@
+import java.lang.*;
+import java.util.*;
+
+public class Main {
+
+    public static boolean isfibonacci(long a){
+        // checking if int a i.e. 5*n^2 + 4 or 5*n^2-4 is perfect sqr or NOT
+
+        long sqrt = (long)Math.sqrt(a);
+        return(sqrt*sqrt==a);
+
+    }
+
+
+    public static void main(String[] args) {
+        // YOUR CODE GOES HERE
+        // Please take input and print output to standard input/output (stdin/stdout)
+        // DO NOT USE ARGUMENTS FOR INPUTS
+        // E.g. 'Scanner' for input & 'System.out' for output
+        Scanner sc = new Scanner(System.in);    
+        int T = sc.nextInt();
+        for (int i = 1; i<=T;i++){
+            long n = sc.nextLong();
+            if((isfibonacci(5*n*n+4) || isfibonacci(5*n*n-4)) && n>=0 ){
+                System.out.println("Yes");
+            }
+            else{
+                System.out.println("No");}
+
+        }
+        
+    }
+}
