@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class HCF_GreatestCommonDivisor {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int A = sc.nextInt();
+        int B = sc.nextInt();
+        int rem = B%A;
+
+        while(rem>0){
+            B = A;
+            A = rem;
+            
+            //System.out.println("A: " + A +" B :" + B + " rem: " + rem );
+            
+            rem = B%A;
+
+        }
+        System.out.println(A);
+    }
+}
