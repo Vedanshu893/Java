@@ -1,0 +1,37 @@
+import java.util.Arrays;
+
+public class TwoDArray {
+
+    public static void main(String[] args) {
+
+        // initializing array
+        int[][] arr = new int[3][4] ;
+
+        System.out.println(arr);       //Address at stack
+        System.out.println(arr[0]);    //Address of 0th array (not value)
+
+        // Finding rows and column
+        int rows = arr.length;
+        int cols = arr[0].length;
+
+        // Printing rows and column
+        System.out.println(rows);
+        System.out.println(cols);
+
+        //Print all elements of array
+        //Printing array from each location
+        for (int i = 0; i<rows ; i++){
+            System.out.println(arr[i]);                            //Address of ith row
+            System.out.println(Arrays.toString(arr[i]));           //Elements of ith row
+        }
+
+        // Print all the elements using loop
+        for(int i =0; i<rows ; i++){
+            for(int j=0; j<cols ; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+ 
+    }
+}
