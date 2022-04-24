@@ -1,0 +1,32 @@
+
+import java.util.Scanner;
+
+public class FindingLargestElement {
+
+    public static int largestElement(int[] array) {
+        int largest = Integer.MIN_VALUE;   // Initializing with minimum possible integer number
+        for (int x : array) {
+            if (x > largest) {
+                largest = x;
+            }
+        }
+        return largest;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+
+        int[] arr = new int[5];  // Declaring array of fixed size
+
+        // Initializing Array
+        System.out.print("Enter 5 elements of array: ");
+        for (int i = 0; i <= arr.length - 1; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int large = largestElement(arr);
+        System.out.println("Largest no. is : "+ large);
+    }
+}
