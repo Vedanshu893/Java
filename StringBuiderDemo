@@ -1,0 +1,17 @@
+public class StrBuilder {
+    public static void main(String[] args) {
+
+        StringBuilder sb = new StringBuilder("Ukraine");
+
+        sb.append(" world");  //Modifies same object
+        System.out.println(sb);
+
+        sb.insert(7," invasion of");
+        System.out.println(sb);
+
+        sb.replace(7,19," civilization of");   // <end  not <=end
+        System.out.println(sb);
+
+
+    }
+}
