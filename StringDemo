@@ -1,0 +1,70 @@
+import java.util.Locale;
+
+public class StringDemo {
+
+    public static void main(String[] args) {
+
+        
+        String s = "Hello World WorldW";  // Declaration & Initialization
+
+        //  Method : charAt
+        System.out.println(s.charAt(2));
+
+        // Method : Length  {Length is a property in Arrays here, it is Method}
+        System.out.println(s.length());
+
+        //Method : indexOf
+        System.out.println(s.indexOf("W"));          //1st occurrence
+        System.out.println(s.indexOf("orl"));        //sub-string
+        System.out.println(s.lastIndexOf('W'));  //last occurrence
+        System.out.println(s.indexOf('%'));          // returns -1 (if char not present)
+
+
+        //Method : Contains
+        if(s.contains("World")){
+            System.out.println("Found");
+        }
+        else{
+            System.out.println("Not Found");
+        }
+
+        //Method : Uppercase & Lower case
+        String s2 = s.toLowerCase();
+        String s3 = s.toUpperCase();
+        System.out.println(s2);
+        System.out.println(s3);
+
+
+        System.out.println(s3.toLowerCase().contains("world"));  //Mixing different Methods
+
+        //Method : Replace
+
+        String s4 = "I love programming.";
+        String s5 = s4.replace("programming","java");
+        System.out.println("Original One : " + s4);
+        System.out.println("replaced one : " +s5);
+
+        //Method : sub string
+        String s6 = "Hello World";
+        System.out.println(s6.substring(3));
+        System.out.println(s6.substring(3,8));
+        
+
+
+        //Method : equals
+        String s = "abc";
+        String s2 = "abc";
+        String s3 = new String("abc");
+        System.out.println(s==s2);                  // refers to same object in heap memory--> return 'true'
+        System.out.println(s==s3);                  // refers to different str obj in heap memory --> return 'false'
+
+        //comparing content despite two different objects
+        System.out.println(s.equals(s3));           // return 'true'
+
+
+
+
+
+
+    }
+}
