@@ -1,0 +1,37 @@
+
+
+import java.util.Scanner;
+
+
+
+public class TwoDArrayBasic2 {
+
+    //Printing function of a 2D Array
+    public static  void print2DArray(int[][] arr){
+        for(int i = 0; i<arr.length ; i++){
+
+            int col = arr[i].length;                 // for unequal col length
+            for(int j = 0 ; j<col; j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int r = sc.nextInt();
+        int c = sc.nextInt();
+
+        int [][] arr = new int[r][c];  // Creation using user input
+
+        // hard coded initialization & declaration with unequal col length
+
+        int [][] arr2 = {{1,2,3},{4,5,6},{7,8}};
+
+        print2DArray(arr);
+        print2DArray(arr2);
+
+    }
+}
