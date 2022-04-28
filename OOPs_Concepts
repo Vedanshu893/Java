@@ -1,0 +1,56 @@
+//OOPs concept is explained with the example of "Car" class :
+//Where its properties(Data members) are (Model, Colour, Price)
+//Functionalities(Class Methods) are : Drive, Lock & Unlock
+
+class Car{
+    String model = "SUV";
+    String colour = "Black";
+    int price = 100000;
+    boolean isLocked = true;
+
+    void Drive(){
+        System.out.println("Car is running");
+    }
+
+    void Lock(){
+        System.out.println("Car is lock now");
+        isLocked = true;
+    }
+
+    void Unlock(){
+        System.out.println("Car is unlock now");
+        isLocked = false;
+    }
+
+    String getDetails(){
+        return model + "-" + colour;
+    }
+}
+
+public class OOPs {
+    public static void main(String[] args) {
+        Car c1 = new Car();
+        Car c2 = new Car();
+
+        System.out.println(c1.model);
+        System.out.println(c1.colour);
+        System.out.println(c1.price);
+
+        c2.colour = "Red";   //value update
+        System.out.println(c2.colour);
+
+        c1.Drive();
+        c2.Lock();
+        System.out.println(c2.isLocked);
+        c1.Unlock();
+        System.out.println(c1.isLocked);
+
+        System.out.println(c1.getDetails());
+        System.out.println(c2.getDetails());
+
+        //Printing address of Cars
+        System.out.println(c2);
+        System.out.println(c1);
+    }
+
+}
