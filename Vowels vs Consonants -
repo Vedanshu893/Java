@@ -1,0 +1,26 @@
+public static String reverse(String s){
+        StringBuilder rev = new StringBuilder(s);
+        rev.reverse();
+        return rev.toString();
+    }
+
+    public static void main(String[] args) {
+        // YOUR CODE GOES HERE
+        // Please take input and print output to standard input/output (stdin/stdout)
+        // DO NOT USE ARGUMENTS FOR INPUTS
+        // E.g. 'Scanner' for input & 'System.out' for output
+
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        
+        String[] s  = str.split(" ");
+      
+        for(int i=0; i<s.length - 1;i++) {
+            String temp = reverse(s[i]);
+            System.out.print(temp);
+            System.out.print(" ");
+        }
+
+        String last = reverse(s[s.length -1]);
+        
+    }
