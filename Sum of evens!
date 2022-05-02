@@ -1,0 +1,16 @@
+public class Solution {
+    public int solve(int A) {
+        int i = 1;
+        int sum=0;
+        while (i<=A){
+            if(i%2==0){
+                sum=sum + i;
+                i+=1;
+            }
+            else{
+                i+=1;
+            }
+        }
+        return sum;
+    }
+}
