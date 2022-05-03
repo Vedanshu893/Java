@@ -1,0 +1,20 @@
+public class Solution {
+    public ArrayList<ArrayList<Integer>> solve(ArrayList<ArrayList<Integer>> A, ArrayList<ArrayList<Integer>> B) {
+        
+        ArrayList<ArrayList<Integer>> Z = new ArrayList<ArrayList<Integer>>();
+        
+        int row = A.size();
+        //int col = A.get(0).size();
+
+        for(int i = 0; i < row; i++){
+            int col = A.get(i).size();
+            Z.add(i,new ArrayList<Integer>());
+            for(int j=0; j<col ;j++){
+                int elem = A.get(i).get(j) - B.get(i).get(j);
+                Z.get(i).add(elem);
+            }
+        }
+        return Z;
+
+    }
+}
