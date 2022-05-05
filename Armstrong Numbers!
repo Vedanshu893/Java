@@ -1,0 +1,42 @@
+import java.lang.*;
+import java.util.*;
+
+public class Main {
+
+        static boolean IsArmstrong(int n) {
+        int num =n;  //temporary storage
+        int sum = 0;
+        int ld = 0;
+
+        while (n > 0) {
+            ld = n % 10;
+            sum = sum + ((ld * ld) * ld);
+            n = n / 10;
+        }
+
+        if (sum == num) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public static void main(String[] args) {
+        // YOUR CODE GOES HERE
+        // Please take input and print output to standard input/output (stdin/stdout)
+        // DO NOT USE ARGUMENTS FOR INPUTS
+        // E.g. 'Scanner' for input & 'System.out' for output
+
+        Scanner sc = new Scanner(System.in);
+            int N = sc.nextInt();
+
+            for(int i=1; i<=N;i++){
+                if(IsArmstrong(i)){
+                    System.out.println(i);
+                }
+
+            }
+
+                
+    }
+}
