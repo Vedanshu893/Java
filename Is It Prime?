@@ -1,0 +1,22 @@
+import java.lang.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+             Scanner sc = new Scanner(System.in);
+            int A = sc.nextInt();
+
+            for(int i=2; i<A; i++){
+                if(A%i==0){
+                    System.out.println("NO");
+                    break;
+                }
+               
+                else if (i==A-1){
+                    System.out.println("YES");
+                }
+            }
+    }
+
+}
