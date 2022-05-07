@@ -1,0 +1,27 @@
+public static final HashSet<State> states = new HashSet<State>();
+
+public static void main(String[] args) {
+    solve(new State(selectStartingBoard()));
+}
+
+public static State solve(State initialState) {
+    TreeSet<State> queue = new TreeSet<State>(new Comparator1());
+    queue.add(initialState);
+    states.add(initialState);
+    while(!queue.isEmpty()) {
+        State current = queue.pollFirst();
+        for(State s : current.findNext()) {
+            if(s.goalCheck()) {
+                s.setParent(current);
+                return s;
+            }
+            if(!states.contains(s)) {
+                s.setPathDistance(current.getPathDistance() + 1);
+                s.setParent(current);
+                states.add(s);
+                queue.add(s);
+            }
+        }
+    }
+    return null;
+}
