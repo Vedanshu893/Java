@@ -1,0 +1,42 @@
+package com.company.Array;
+
+// input : {3,4,5,6,7,8,9,10,11,12,13,14} & Required Rotation "k" times
+// expected output : {11,12,13,14,3,4,5,6,7,8,9,10}
+
+import java.util.Arrays;
+
+public class RotateElemKTimes {
+
+    public static int[] reverse(int[] arr, int s, int e){
+        while(s<=e){
+            int temp = arr[s];
+            arr[s] = arr[e];
+            arr[e] = temp;
+            s += 1 ;
+            e -= 1;
+        }
+        return arr;
+
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3,4,5,6,7,8,9,10,11,12,13,14};
+        System.out.println(Arrays.toString(arr));   // input
+        int k = 4;
+
+
+        // reversing whole array
+        arr = reverse(arr,0, arr.length-1);
+        //System.out.println(Arrays.toString(arr));
+
+        // reversing 1st part
+        arr = reverse(arr,0,k-1);
+        //System.out.println(Arrays.toString(arr));
+
+        //reversing 2nd part
+
+        arr = reverse(arr,k,arr.length-1);
+        System.out.println(Arrays.toString(arr));  // final output
+
+    }
+}
