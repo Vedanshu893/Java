@@ -1,0 +1,25 @@
+package com.company.Array;
+
+import java.util.Arrays;
+
+public class ReverseArrayElemBtwIndex {
+
+    public static void main(String[] args) {
+
+        int [] arr = {1,3,4,5,6,7,3,12,17,10}; //given
+        System.out.println(Arrays.toString(arr));
+        int s =4; int e = 8;   // given
+        int temp =0;
+        while(s<=e){
+            temp = arr[s];
+            arr[s] = arr[e];
+            arr[e] = temp;
+            s+=1;
+            e-=1;
+
+        }
+
+        System.out.println(Arrays.toString(arr));
+
+    }
+}
