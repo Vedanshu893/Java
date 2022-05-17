@@ -1,0 +1,48 @@
+package com.company.Array;
+
+//T.C : O(N)
+//S.C : O(N)
+
+import java.util.Arrays;
+
+public class CumulativeArray {
+
+    // returns cumulative array or prefix Sum array
+
+    public static int[] prefixArr(int[] arr){
+        int n = arr.length;
+        int[] cumarr = new int[n];
+        cumarr[0] = arr[0];
+        for(int i =1; i<n;i++){
+            cumarr[i] = arr[i] + cumarr[i-1];
+        }
+        return cumarr;
+    }
+
+    //findSum is function which returns sum of elements from range L to R (inclusive)
+    public static int findSum(int[] arr, int L, int R){
+        int[] arrc = prefixArr(arr);
+       if(L==0){
+           return arrc[R];
+       }
+       else{
+           return arrc[R] - arrc[L-1];
+       }
+
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {10,20,30,5,12,-10,-15};
+
+        //int[] arrc = prefixArr(arr);
+
+        System.out.println(Arrays.toString(prefixArr(arr)));
+
+
+    //Find sum in the range from index L to R for Q number of queries
+
+        int result = findSum(arr,0,4);
+        System.out.println(result);
+
+    }
+}
