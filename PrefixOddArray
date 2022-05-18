@@ -1,0 +1,26 @@
+package com.company.Array;
+
+import java.util.Arrays;
+
+public class PrefixOddArray {
+    public static void main(String[] args) {
+
+        //int[] arr = {2,-1,3,4,-2,6};
+        int[] arr = {-1,5,4,6,8,9,11,0};
+        int n = arr.length;
+        int[] pfso = new int[n];
+        pfso[0] = arr[0];
+        for(int i=1; i<n; i++) {
+            if (i % 2 != 0) {
+                pfso[i] = pfso[i - 1] + arr[i];
+            }
+
+            else {
+                pfso[i] = pfso[i - 1];
+            }
+        }
+
+        System.out.println(Arrays.toString(pfso));
+
+    }
+}
