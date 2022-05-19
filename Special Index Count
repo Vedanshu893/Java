@@ -1,0 +1,80 @@
+package com.company;
+
+import java.util.*;
+import java.util.jar.JarOutputStream;
+
+public class Rough {
+
+    public static int[] pfse(int[] arr) {
+        int n = arr.length;
+        int[] pfse = new int[n];
+        pfse[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (i % 2 == 0) {
+                pfse[i] = pfse[i - 1] + arr[i];
+            } else {
+                pfse[i] = pfse[i - 1];
+            }
+        }
+        return pfse;
+    }
+
+    public static int[] pfso(int[] arr) {
+        int n = arr.length;
+        int[] pfso = new int[n];
+        pfso[0] = arr[0];
+        pfso[1] = arr[1];
+        for(int i=2; i<n; i++) {
+            if (i % 2 != 0) {
+                pfso[i] = pfso[i - 1] + arr[i];
+            }
+
+            else {
+                pfso[i] = pfso[i - 1];
+            }
+        }
+        return pfso;
+    }
+
+
+    public static void main(String[] args) {
+
+        int[] arr = {4, 3, 2, 7, 6, -2};
+        int count = 0;
+        int n = arr.length;
+        for (int i = 0; i < n ; i++) {
+
+            int[] arr_temp = new int[n - 1];
+
+            for(int k=0; k<i;k++){
+                arr_temp[k] = arr[k];
+            }
+
+            for(int j=i; j<n-1; j++) {
+                arr_temp[j] = arr[j + 1];
+            }
+
+            int[] pfse_temp = pfse(arr_temp);
+            int[] pfso_temp = pfso(arr_temp);
+            if (pfse_temp[n - 2] == pfso_temp[n - 2]) {
+                count += 1;
+            }
+
+            //System.out.println(Arrays.toString(arr));
+            //System.out.println(Arrays.toString(arr_temp));
+            //System.out.println(Arrays.toString(pfse_temp));
+            //System.out.println(Arrays.toString(pfso_temp));
+            
+
+        }
+        System.out.println(count);
+    }
+}
+
+
+
+
+
+
+
+
