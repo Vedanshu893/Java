@@ -1,0 +1,60 @@
+package com.company.Array;
+
+// [1,2,3,4]
+// [5,6,7,8]
+// [9,10,11,12]
+
+// Output --> 1,5,9,10,6,2,3,7,11,12,8,4
+
+
+public class TraversingWave2DArray {
+
+    //Printing Downward
+    public static void printDown(int[][]arr,int i) {
+        for(int j=0; j<arr.length;j++){
+            System.out.print(arr[j][i] +" ");
+        }
+    }
+
+    // Printing Upward
+    public static void printUp(int[][] arr, int i) {
+        for(int j=arr.length-1;j>=0;j--){
+            System.out.print(arr[j][i] +" ");
+        }
+    }
+
+    //Printing function of a 2D Array
+    public static void print2DArray(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+
+            int col = arr[i].length;                 // for unequal col length
+            for (int j = 0; j < col; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        int[][] arr = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
+        print2DArray(arr);
+
+        int row = arr.length;
+        int col = arr[0].length;
+        //System.out.println(row + ", " + col);
+
+        System.out.println("Printing in wave pattern :");
+        for (int i = 0; i < col; i++) {
+
+            if (i%2 == 0){
+                printDown(arr,i);
+            }
+            else {
+                printUp(arr,i);
+            }
+        }
+
+    }
+}
+
+
