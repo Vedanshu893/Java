@@ -1,0 +1,98 @@
+package com.company;
+
+
+import java.util.Arrays;
+
+public class Rough {
+
+    public static int findsumpfse(int[] arr,int l, int r){
+
+        int[] arr_pfse = pfse(arr);
+        if(l==0){
+            return arr_pfse[r];
+        }
+        else{
+            return arr_pfse[r]- arr_pfse[l-1];
+        }
+    }
+
+    public static int[] pfse(int[] arr){
+        int n = arr.length;
+        int[] pfse = new int[n];
+        pfse[0] = arr[0];
+        for(int i =1;i<n;i++){
+            if(i%2==0){
+                pfse[i] = pfse[i-1] + arr[i];
+            }
+            else{
+                pfse[i] =pfse[i-1];
+            }
+        }
+        return pfse;
+
+    }
+
+    public static int[] pfso(int[] arr){
+        int n = arr.length;
+        int[] pfso = new int[n];
+        pfso[0] = arr[0];
+        pfso[1] = arr[1];
+        for(int i =2; i<n;i++){
+            if(i%2==0){
+                pfso[i] = pfso[i-1];
+            }
+            else{
+                pfso[i] = pfso[i-1] + arr[i];
+            }
+        }
+        return pfso;
+    }
+
+    public static int findsumpfso(int[] arr, int l, int r){
+
+        int[] arr_pfso = pfso(arr);
+        if(l==0){
+            return arr_pfso[r];
+        }
+        else{
+            return arr_pfso[r] - arr_pfso[l-1];
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {4, 3, 2, 7, 6, -2};
+        int count = 0;
+        int n = arr.length;
+        int evenindex_sum, oddindex_sum ;
+
+        for(int i =0; i<n;i++){
+
+            // i=0 : edge case
+            if(i==0){
+                //System.out.println(Arrays.toString(pfse(arr)));
+                evenindex_sum = findsumpfso(arr,0,n-1);    // starting range starting from 0
+                //System.out.println(Arrays.toString(pfso(arr)));
+                oddindex_sum =  findsumpfse(arr,i+1,n-1);
+            }
+
+            else {
+                evenindex_sum = findsumpfse(arr, 0, i - 1) + findsumpfso(arr, i + 1, n - 1);
+                oddindex_sum = findsumpfso(arr, 0, i - 1) + findsumpfse(arr, i + 1, n - 1);
+            }
+            System.out.println("i = "+i);
+            System.out.println("pfse: "+Arrays.toString(pfse(arr)));
+            System.out.println("pfos: "+Arrays.toString(pfso(arr)));
+            System.out.println("evenindex_sum :" +evenindex_sum);
+            System.out.println("oddindex_sum :"+oddindex_sum);
+            if(evenindex_sum==oddindex_sum){
+                count += 1;
+            }
+        }
+        System.out.println("count: "+count);
+
+    }
+}
+
+
