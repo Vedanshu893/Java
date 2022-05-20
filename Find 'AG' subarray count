@@ -1,0 +1,30 @@
+package com.company.Array;
+
+// Brute force : T.C. O[N*N]
+import java.util.Arrays;
+
+public class FindAGsubArrayCount {
+
+    public static void main(String[] args) {
+        //char[] arr = {'B','A','A','G','X','D','C','A','G'};
+        char[] arr = {'B','C','A','G','G','A','A','G'};
+
+        int n = arr.length;
+        int count =0;
+
+        System.out.println(Arrays.toString(arr));
+
+        for(int i =0; i<n;  i++){
+            if(arr[i]=='A'){
+                for(int j=i+1;j<n;j++){
+                    if(arr[j]=='G'){
+                        count+=1;
+                    }
+                }
+            }
+        }
+
+        System.out.println(count);
+        
+    }
+}
