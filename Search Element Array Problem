@@ -1,0 +1,43 @@
+import java.lang.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // YOUR CODE GOES HERE
+        // Please take input and print output to standard input/output (stdin/stdout)
+        // DO NOT USE ARGUMENTS FOR INPUTS
+        // E.g. 'Scanner' for input & 'System.out' for output
+        int count =0;
+        Scanner sc  = new Scanner(System.in);
+        int T = sc.nextInt();
+
+        for(int i =1; i<=T; i++){
+
+            int N = sc.nextInt();
+            int[] A = new int[N];
+
+            for(int j=0; j<N;j++){
+                A[j] = sc.nextInt();
+            }
+
+            int B = sc.nextInt();
+
+            for(int k =0; k<N ;k++){
+                if(A[k]==B){
+                    count+=1;
+                }
+            }
+
+            if(count>0){
+                System.out.println("1");
+            }
+            else{
+                System.out.println("0");
+            }
+
+        count =0;
+           
+        }
+
+    }
+}
