@@ -1,0 +1,19 @@
+package com.company.BitManupulation;
+
+//Using XOR property : A^A = 0
+//T.C. = O[N^2]
+//S.C. = O[1]
+
+public class FindUniqueElement {
+
+    public static void main(String[] args){
+        int[] arr = {1,1,4,7,9,4,7,9,6};
+        int ans =0;
+        for(int x: arr){
+            ans = ans ^x;
+        }
+
+        System.out.println(ans);
+
+    }
+}
