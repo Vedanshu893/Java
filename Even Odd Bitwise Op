@@ -1,0 +1,18 @@
+package com.company.BitManupulation;
+
+// if a&1 == 0 : a is even
+// if a&1 == 1 : a is odd
+
+public class findEvenOdd {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,7,88};
+        for(int x : arr){
+            if((x&1)==0){
+                System.out.println(x+ ": even");
+            }
+            else {
+                System.out.println(x+ ": odd");
+            }
+        }
+    }
+}
