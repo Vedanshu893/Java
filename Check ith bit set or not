@@ -1,0 +1,23 @@
+package com.company.BitManupulation;
+
+public class CheckithSetbit {
+    
+    // Checking by using left shift operator
+
+    public static boolean checkbitleft(int n, int i){
+        return (((1<<i)&n)!=0);
+    }
+
+    // Checking by using right shift operator
+    
+    public static boolean checkbitright(int n, int i){
+        return (((n>>i)&1)==1);
+    }
+
+    public static void main(String[] args) {
+        int n =321;
+        System.out.println(checkbitleft(n,6));
+        System.out.println(checkbitright(n,6));
+
+    }
+}
