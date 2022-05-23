@@ -1,0 +1,49 @@
+package com.company.BitManupulation;
+
+// Loop runs everytime 32 times irrespective of any value
+// T.C. = O[1]
+
+import java.util.ArrayList;
+
+public class CheckSetBit2 {
+
+    public static int Decimal2Binary(int x){
+
+        ArrayList<Integer> al = new ArrayList<>();
+
+        // Storing remainders in ArrayList
+
+        while(x>0){
+            al.add(x%2);
+            x = x/2;
+        }
+
+        //Accessing ArrayList elements in reverse
+
+        int ans = 0;
+        for(int i=al.size()-1; i>=0;i--){
+            //System.out.print("printing: " + al.get(i));    //Printing in binary form
+            int a = al.get(i);
+            ans = ans*10 + a;                             //Binary number formation of int type
+        }
+        return ans;
+    }
+
+    public static boolean checkbit(int x, int i){
+        return(((x>>i)&1)==1);
+    }
+
+
+    public static void main(String[] args) {
+        // Suppose integer is of 32 bits
+        int N = 321;
+        int bin_form = Decimal2Binary(N);
+        int c =0;
+        for (int i =0; i<32;i++){
+            if(checkbit(N,i)){
+                c += 1;
+            }
+        }
+        System.out.println("Total Set bits in "+ bin_form +  " are : " + c);
+    }
+}
