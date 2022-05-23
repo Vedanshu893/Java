@@ -1,0 +1,44 @@
+package com.company.BitManupulation;
+
+import java.util.ArrayList;
+
+// Time Complexity = O[log N]
+
+public class CheckSetBit {
+    public static int Decimal2Binary(int x){
+
+        ArrayList<Integer> al = new ArrayList<>();
+
+        // Storing remainders in ArrayList
+
+        while(x>0){
+            al.add(x%2);
+            x = x/2;
+        }
+
+        //Accessing ArrayList elements in reverse
+
+        int ans = 0;
+        for(int i=al.size()-1; i>=0;i--){
+            //System.out.print("printing: " + al.get(i));    //Printing in binary form
+            int a = al.get(i);
+            ans = ans*10 + a;                             //Binary number formation of int type
+        }
+       return ans;
+    }
+
+    public static void main(String[] args) {
+        int N = 321;
+        int bin_form = Decimal2Binary(N);
+        System.out.println(bin_form);
+        int count = 0;
+
+        while(N>0){
+            if((N&1)==1){
+                count += 1;
+            }
+            N = N>>1;
+        }
+        System.out.println("Total Set bits in "+ bin_form +  " are : " + count);
+    }
+}
