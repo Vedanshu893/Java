@@ -1,0 +1,19 @@
+package com.company.BitManupulation;
+
+// n = 10 ; i.e. 1010
+// i = 2
+// ans = 1110 i.e. 14
+
+public class Toggleithbit {
+
+    public static void main(String[] args) {
+        int n = 10;
+        int i = 2;
+
+        int ans = ((1<<i)^n);
+        System.out.println(ans);
+
+
+
+    }
+}
