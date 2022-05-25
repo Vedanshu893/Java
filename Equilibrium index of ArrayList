@@ -1,0 +1,66 @@
+public class Solution {
+
+    public static ArrayList<Integer> prefixsum(ArrayList<Integer> al){
+
+        //This function creates the prefix sum array
+
+        int n = al.size();
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(0,al.get(0));
+        
+        for(int i =1; i<n; i++){
+            int p = al.get(i) + arr.get(i-1);
+            arr.add(i,p);
+            
+        }
+        return arr;
+    }
+
+
+    public static int sumrange(ArrayList<Integer> pfs, int l, int r){
+        // This function return the sum range of an array from range 'l' to 'r'
+        // Here input is a prefeix Sum array
+
+        if(l==0){
+            return pfs.get(r);
+        }
+        else{
+            return pfs.get(r) - pfs.get(l-1);
+        }
+
+    }
+
+
+    public int solve(ArrayList<Integer> A) {
+
+        int n = A.size();
+        
+        int before_sum = 0;
+        int after_sum = 0;
+
+        ArrayList<Integer> pfs = prefixsum(A);
+
+        for(int i=0; i<n; i++){
+
+            if(i==0){                              // edge case on i =0
+                before_sum = 0;
+                after_sum = sumrange(pfs,1,n-1);
+            }
+
+            else{
+            before_sum = sumrange(pfs,0,i-1);
+            after_sum = sumrange(pfs,i+1,n-1);
+            }
+
+
+            if(before_sum == after_sum){
+                
+                return i;
+            }
+        }
+
+    return -1;   
+
+    }
+
+}
