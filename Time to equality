@@ -1,0 +1,18 @@
+public class Solution {
+    public int solve(ArrayList<Integer> A) {
+        int max = -999999999;
+
+        for (int i=0; i<A.size();i++){
+            if(A.get(i)>max){
+                max = A.get(i);
+            }
+        }
+
+        int time =0;
+        for(int j=0;j<A.size();j++){
+            int temp = max - A.get(j);
+            time += temp;
+        }
+        return time;
+    }
+}
