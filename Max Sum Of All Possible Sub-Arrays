@@ -1,0 +1,24 @@
+package com.company.Array;
+
+public class MaxSumOfAllPossibleSubArrays {
+    public static void main(String[] args) {
+        int[] arr = {4, -1, 1, 6, 5, 4, 3, 2};
+        //int s = 2;    // index of starting element
+
+
+        int n = arr.length;
+
+        int max_sum = Integer.MIN_VALUE;
+        for (int s = 0; s < n; s++) {
+            int sum = 0;
+            for (int i = s; i < n; i++) {
+                sum = sum + arr[i];
+                //System.out.print(sum + " ");
+                max_sum = Math.max(max_sum, sum);
+
+            }
+        }
+
+        System.out.println(max_sum);
+
+}}
