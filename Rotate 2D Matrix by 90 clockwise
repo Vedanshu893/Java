@@ -1,0 +1,74 @@
+package com.company.Array;
+
+public class Rotating2DArray90 {
+    public static void reverse(int[] arr){
+        int n = arr.length;
+        int i=0;
+        int j=n-1;
+        while(i<j){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i+=1;
+            j-=1;
+        }
+    }
+
+    public static void print2D(int[][] arr){
+
+        // Calculating rows & column length
+
+        int n_rows = arr.length;
+        int n_cols = arr[0].length;
+
+
+        //Printing all elements
+
+        for(int i =0; i< n_rows; i++){
+            for(int j=0; j<n_cols; j++){
+                System.out.print(arr[i][j]+  " ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+        int[][] arr = {{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+        print2D(arr);
+        System.out.println();
+
+        // Calculating rows & column length
+
+        int n_rows = arr.length;
+        int n_cols = arr[0].length;
+
+        // finding Transpose of Matrix in place
+        // i ~ [0, N-2]
+        // j ~ [i+1, N-1]
+
+        //System.out.println("Transpose of the matrix is :");
+
+        for(int x = 0; x< n_rows-1;x++ ){
+            for(int y= x+1; y<n_cols; y++){
+                //swap arr[x][y] -> arr[y][x]
+                int temp = arr[x][y];
+                arr[x][y] = arr[y][x];
+                arr[y][x] = temp;
+            }
+        }
+
+        //print2D(arr);
+
+        // Reversing all rows of 2D Matrix
+
+        //System.out.println("reversing all elements row wise :");
+
+        for(int p=0; p<n_rows; p++){
+            reverse(arr[p]);
+        }
+
+        System.out.println("Output :");
+        print2D(arr);
+
+
+    }
+}
