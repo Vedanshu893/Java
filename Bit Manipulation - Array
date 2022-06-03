@@ -1,0 +1,20 @@
+public class Solution {
+    public String solve(ArrayList<Integer> A) {
+        int ans = A.get(0);
+        for(int i =1; i<A.size(); i++){
+            ans = (ans ^ A.get(i));
+
+        }
+
+        if((ans&1)==0){
+            return "Yes";
+        }
+        else{
+            return "No";
+        }
+    }
+}
+
+
+
+//Approach : Keep on XORing of every element of AttayList & finally check if it is even or odd.
