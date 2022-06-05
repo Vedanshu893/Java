@@ -1,0 +1,147 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Rough {
+    public static void print2D(int[][] arr){
+
+        // Calculating rows & column length
+
+        int n_rows = arr.length;
+        int n_cols = arr[0].length;
+
+
+        //Printing all elements
+
+        for(int i =0; i< n_rows; i++){
+            for(int j=0; j<n_cols; j++){
+                System.out.print(arr[i][j]+  " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static int[][] desiredfuncswap(int[][] arr, int case2, int n, int m,int l1, int l2){
+
+        if(case2 == 1){
+            Scanner sc = new Scanner(System.in);
+            int c1 = l1;
+            int c2 = l2;
+
+            System.out.println(c1 + " " + c2);
+
+            // Swap column c1 & c2
+
+            for(int i=0; i<n; i++){
+                int temp = arr[i][c1];
+                arr[i][c1] = arr[i][c2];
+                arr[i][c2] = temp;
+            }
+
+        }
+
+        else if(case2 ==2){
+            Scanner sc = new Scanner(System.in);
+            int r1 = l1;
+            int r2 = l2;
+
+            //System.out.println(r1 + " " + r2);
+
+            // Swap rows r1 & r2
+
+            for(int j=0; j<m ; j++){
+                int temp = arr[r1][j];
+                arr[r1][j] = arr[r2][j];
+                arr[r2][j] = temp;
+
+            }
+
+        }
+
+        return arr;
+    }
+
+    public static int desiredfuncoper(int[][]arr, int case1, int x1, int y1, int x2, int y2){
+        int ans =0;
+
+        if(case1 ==3){
+
+            // Bitwise OR
+            System.out.println("in");
+            ans = (arr[x1][y1] | arr[x2][y2]);
+
+        }
+
+        else if(case1 == 4){
+
+            // Bitwise AND
+            System.out.println("in");
+            ans = (arr[x1][y1] & arr[x2][y2]);
+
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+
+        //System.out.println(n +" " +m + " "+q);
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int q = sc.nextInt();
+
+        int[][] arr = new int[n][m];
+        int count =1;
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                arr[i][j] = count;
+                count += 1;
+            }
+        }
+
+        print2D(arr);
+        //System.out.println(q);
+
+
+        for(int p=1; p<=q; p++){
+            int bucket = sc.nextInt();
+            //System.out.println(bucket);
+
+
+
+            if(bucket ==1){
+                int l1 = sc.nextInt();
+                int l2 = sc.nextInt();
+                arr = desiredfuncswap(arr, bucket,n,m,l1,l2);
+                print2D(arr);
+
+            }
+
+            else if(bucket==2){
+                int l1 = sc.nextInt();
+                int l2 = sc.nextInt();
+                arr = desiredfuncswap(arr, bucket,n,m,l1,l2);
+                print2D(arr);
+            }
+
+            else if((bucket ==3) || (bucket==4)){
+                int e = sc.nextInt();
+                int f = sc.nextInt();
+                int g = sc.nextInt();
+                int h = sc.nextInt();
+
+                System.out.println(e+" "+f+" "+g+" "+h+" ");
+                int ans = desiredfuncoper(arr,bucket,e,f,g,h);
+                System.out.println(ans);
+
+            }
+        }
+
+
+    }
+}
