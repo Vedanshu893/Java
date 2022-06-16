@@ -1,0 +1,23 @@
+package com.company.String;
+
+public class Rough_string {
+    public static void main(String[] args){
+        String test = "Adam";
+        int diff = 'a'-'A';
+        //System.out.println(diff);
+
+        System.out.println(test);
+        for(int i =0;i<test.length(); i++){
+            if(test.charAt(i)>='a' && test.charAt(i)<='z'){
+
+                System.out.print((char)(test.charAt(i) - diff));
+            }
+            else{
+                System.out.print((char)(test.charAt(i) + diff));
+            }
+        }
+
+
+
+    }
+}
