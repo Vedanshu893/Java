@@ -1,0 +1,72 @@
+/*
+1-Use HashMap as DS
+2-Use sliding window & keep updating HM
+3-Remove elem with freq = 0 from HM before printing size
+
+No. of windows = N-k+1 (window size : k)
+1st sub-array [0, k-1]
+last sub-array [k. N-1]
+
+ */
+
+import java.util.HashMap;
+
+public class numofdistinctelemofwindwsizek {
+    public static void main(String[] args) {
+        int[] arr = {2, 4, 3, 8, 3, 9, 4, 9, 4, 10};
+        int k = 4;
+        int n = arr.length;
+
+        //Creating initial HashMap from [0 , k-1]
+
+        HashMap<Integer, Integer> hm = new HashMap<>();
+
+        for (int i = 0; i < k; i++) {
+
+            //hm.put(arr[i],hm.getOrDefault(arr[i],0)+1);
+
+            if (hm.containsKey(arr[i])) {
+                hm.put(arr[i], hm.get(arr[i]) + 1);
+            } else {
+                hm.put(arr[i], 1);
+            }
+        }
+
+        System.out.println(hm.toString());
+        System.out.println("size: "+ hm.size());
+
+        int i = 1;
+        int j = k;  //for getting adding index
+
+        while (j < n) {
+
+            // sub-array [i j]
+
+            // remove (i-1)th index element
+            hm.put(arr[i - 1], hm.get(arr[i - 1]) - 1);
+
+            //check if frequency becomes 0 = delete the elem
+            if (hm.get(arr[i - 1]) == 0) {
+                hm.remove(arr[i - 1]);
+            }
+
+            //add jth element in HashMap
+
+            //hm.put(arr[j],hm.getOrDefault(arr[j],0)+1);
+
+            if (hm.containsKey(arr[j])) {
+                hm.put(arr[j], hm.get(arr[j]) + 1);
+            } else {
+                hm.put(arr[j], 1);
+            }
+
+            System.out.println(hm.toString());
+            System.out.println("size :" + hm.size());
+
+            i += 1;
+            j += 1;
+        }
+
+    }
+}
+
