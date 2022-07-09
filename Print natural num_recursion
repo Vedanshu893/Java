@@ -1,0 +1,17 @@
+package com.company.Recursion;
+
+public class Print_natural_num {
+    public static void printinc(int N){
+        if(N==0){
+            return;
+        }
+        else{
+            printinc(N-1);
+            System.out.print(N +" ");
+        }
+    }
+
+    public static void main(String[] args) {
+        printinc(6);
+    }
+}
