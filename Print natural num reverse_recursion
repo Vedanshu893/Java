@@ -1,0 +1,22 @@
+package com.company.Recursion;
+
+public class Print_natural_num_rev {
+
+    public static void printdec(int N){
+
+        // Base condition
+        if(N==0){
+            return;
+        }
+        else{
+            // Main function
+
+            System.out.print(N + " ");
+            printdec(N-1);
+        }
+    }
+
+    public static void main(String[] args) {
+        printdec(6);
+    }
+}
