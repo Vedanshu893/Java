@@ -1,0 +1,31 @@
+// Java program to find the difference between 
+// HashSet collections
+
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+    HashSet < Integer > nums1 = new HashSet();
+    HashSet < Integer > nums2 = new HashSet();
+
+    nums1.add(1);
+    nums1.add(2);
+    nums1.add(3);
+    nums1.add(4);
+    nums1.add(5);
+    nums1.add(6);
+
+    nums2.add(1);
+    nums2.add(2);
+    nums2.add(3);
+    nums2.add(4);
+
+    System.out.println("Elements of nums1 set are: " + nums1);
+    System.out.println("Elements of nums2 set are: " + nums2);
+
+    HashSet < Integer > difference = new HashSet < Integer > (nums1);
+    difference.removeAll(nums2);
+
+    System.out.print("Difference of nums1 and nums2: " + difference);
+  }
+}
