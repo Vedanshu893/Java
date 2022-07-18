@@ -1,0 +1,33 @@
+
+    //This Solution have T.C = O(N); otherwise Brute force would provide O(N)
+
+    // |A[i] - A[j]| + |i - j| = |A[i] - A[j]| + (i - j) for i>j
+    // (A[i] + i) - (A[j] + j) or (A[i]-i) - (A[j] -j)
+    // Max  {  X_i - X_j  OR Y_i - Y_j  }
+
+public class Solution {
+
+    public int maxArr(ArrayList<Integer> A) {
+
+        int X_max, X_min, Y_max, Y_min;
+        X_min = Integer.MAX_VALUE;
+        X_max = Integer.MIN_VALUE;
+        Y_min = Integer.MAX_VALUE;
+        Y_max = Integer.MIN_VALUE;
+        
+
+        for(int i=0; i<A.size(); i++){
+            int temp_1 = A.get(i) + i;
+            
+            X_max = Math.max(X_max,temp_1);
+            X_min = Math.min(X_min,temp_1);
+
+            int temp_2 = A.get(i) - i;
+
+            Y_max = Math.max(Y_max,temp_2);
+            Y_min = Math.min(Y_min,temp_2);
+
+        }
+        return (Math.max((X_max - X_min), (Y_max-Y_min)));
+    }
+}
