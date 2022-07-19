@@ -1,0 +1,37 @@
+public class Solution {
+    public ArrayList<Integer> solve(int A, ArrayList<ArrayList<Integer>> B) {
+
+        //Initialing ans ArrayList
+
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        for(int p=0; p<A ; p++){
+            ans.add(p,0);
+        }
+
+        
+        //Accessing Queries 
+        
+        for(int i=0; i<B.size(); i++){
+
+                int start = B.get(i).get(0) -1;
+                int end = B.get(i).get(1)-1;
+                int value = B.get(i).get(2) ;
+
+            
+                ans.set(start, (ans.get(start) + value));
+
+                if(end < ans.size()-1){
+                ans.set((end+1), ( ans.get(end+1) - value));
+                }
+
+        }
+
+    
+        for(int x=1; x<A; x++){
+            ans.set(x, (ans.get(x) + ans.get(x-1)));
+        }
+
+        return ans;
+        
+        }
+    }
