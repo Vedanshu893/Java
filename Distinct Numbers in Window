@@ -1,0 +1,22 @@
+ public ArrayList<Integer> dNums(ArrayList<Integer> A, int B) {
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        Map<Integer, Integer> map = new HashMap<>();
+        int n = A.size();
+        for (int i = 0; i < B; i++) {
+            int num = A.get(i);
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+        ans.add(map.size());
+        for (int i = B; i < n; i++) {
+            int num = A.get(i);
+            int out = A.get(i - B);
+            map.put(out, map.get(out) - 1);
+            if (map.get(out) == 0) {
+                map.remove(out);
+            }
+            map.put(num, map.getOrDefault(num, 0) + 1);
+            ans.add(map.size());
+        }
+        return ans;
+    }
+}
