@@ -1,0 +1,21 @@
+public class Solution {
+
+// Logic : Repetitive substraction means b-a, a -> b%a,a -> gcd(a,b)
+
+    public int gcd(int A, int B) {
+        if(A==0){
+            return B;
+        }
+
+        return gcd(B%A,A);
+    }
+
+    public int solve(ArrayList<Integer> A) {
+        int ans =A.get(0);
+        for(int i=1; i<A.size(); i++){
+            ans = gcd(ans, A.get(i));
+        }
+
+        return ans;
+    }
+}
