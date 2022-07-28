@@ -1,0 +1,36 @@
+public class Solution {
+    public int[] solve(int[] A, int B) {
+        HashMap<Long, Integer> map = new HashMap<>();
+        long sum = 0;
+        Integer start = -1;
+        Integer end = -1;
+        for(int i=0;i<A.length;i++){
+            sum+=A[i];
+// Keeping summig all elements
+// if sum is greater than B find index of sum-B prefix element;
+            if(sum > B) {
+                start = map.get(sum-B);
+                if(start!=null){
+                    start=start+1;
+                    end = i;
+                    break;
+                }
+// if sum == B end is i and start becomes 0
+            } else if(sum == B) {
+                start = 0;
+                end = i;
+                break;
+            }
+            map.put(sum, i);
+        }
+        if(start == null || start == -1) return new int[]{-1};
+        int[] ans = new int[end-start+1];
+        int k =0;
+// copy all elements from start to end and return sub array
+        for(int i = start;i<=end;i++){
+            ans[k] = A[i];
+            k++;
+        }
+        return ans;
+    }
+}
