@@ -1,0 +1,49 @@
+public class Solution {
+public int repeatedNumber(final List<Integer> a) {
+int m1 = a.get(0) , m2 = 0;
+int c1 = 1 ,c2 = 0;
+int k = a.size()/3;
+int cn1 = 0,cn2 = 0;
+for(int i = 1; i < a.size(); i++)
+{
+if(a.get(i) == m1)
+{
+c1++;
+}
+else if(a.get(i) == m2)
+{
+c2++;
+}
+else if(c1 == 0)
+{
+m1 = a.get(i);
+c1++;
+}
+else if(c2 == 0)
+{
+m2 = a.get(i);
+c2++;
+}
+else
+{
+c1--;
+c2--;
+}
+}
+for(int i = 0; i < a.size(); i++)
+{
+if(a.get(i) == m1)
+cn1++;
+if(a.get(i) == m2)
+cn2++;
+}
+
+if(cn1 > k)
+return m1;
+if(cn2 > k)
+return m2;
+return -1;
+
+}
+}
+
