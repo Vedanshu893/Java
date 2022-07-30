@@ -1,0 +1,11 @@
+//CAlculating square numbers < A to get odd factored natural numbers
+
+public class Solution {
+    public int solve(int A) {
+        int ans =0;
+        for(int i=1; i*i<=A; i++){
+            ans += 1;
+        }
+        return ans;
+    }
+}
