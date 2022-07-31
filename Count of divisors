@@ -1,0 +1,56 @@
+public class Solution {
+
+    public ArrayList<Integer> solve(ArrayList<Integer> A) {
+
+        //Converting ArrayList into Array
+        int len = A.size();
+        int[] ar = new int[len];
+
+        for(int i=0 ;i<A.size(); i++){
+            ar[i] = A.get(i);
+        }
+
+        // Find max value in the array 
+        int max = -1;
+        for (int i=0; i<len ; i++){
+            max = Math.max(max,ar[i]);
+        }
+
+
+        //Creating divisor count array to store factor count upto max element
+        
+
+        int[] divcount = new int[max+1];
+        int len2 = divcount.length;
+
+
+
+        
+        //Initializing factor count for '1' as 1 & for other numbers as 2( x = x*1)
+        divcount[1] =1;
+
+        for(int i=2; i<len2 ; i++){
+            divcount[i] =2;
+        }
+ 
+        // Increasing factor count for multiples 
+        
+        for(int i=2; i<len2; i++){
+            for(int j=i+i; j<len2 ; j+=i){
+                divcount[j] += 1 ;
+            }
+        }
+
+
+
+        //Converting ans array into ArrayList
+
+        ArrayList<Integer> ansl = new ArrayList<Integer>();
+
+        for(int i =0; i<len ; i++){
+            ansl.add(divcount[A.get(i)]);
+        }
+
+        return ansl;
+    }
+}
