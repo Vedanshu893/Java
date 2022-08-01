@@ -1,0 +1,68 @@
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+public class Solution {
+    public ArrayList<Interval> insert(ArrayList<Interval> intervals, Interval newInterval) {
+
+              ArrayList<Interval> res = new ArrayList<Interval>(); // we will return this arrayList as output
+
+        int n = intervals.size(); // size of the given intervals
+
+        for(int i = 0; i < n;i++){  // run a loop to access all the elements of intervals
+            Interval currInt = intervals.get(i); // take i-th element of interval as currInt
+
+            if(currInt.end < newInterval.start){  
+                // if end value of current Interval < the start value of new Interval(given as input)
+                // then no overlapping
+                res.add(currInt); //so directly add it in res
+            }
+
+            else if(currInt.start > newInterval.end){
+                // if start value of current interval > end value of new Interval
+                // then no overlapping
+                res.add(newInterval); // so directly add it in res
+
+                // and now no more overlapping happend because our intervals are initially sorted
+                // and start value of current interval > end value of new interval
+                // so we add all the remaining elements directly in res
+
+                while(i < n){  // so run the loop to < n
+                    res.add(intervals.get(i)); // add all the intervals in res
+                    i++;
+                }
+
+                return res;  // return the final res
+            }
+
+            else{
+
+                // if previous two conditions are false, 
+                // it means the newInterval and current interval are overlapping
+
+                // so we will find minimum value of start 
+                // between start value of current interval and newInterval
+                // replace it with start value of newInterval
+
+
+                newInterval.start = Math.min(currInt.start,newInterval.start);
+
+                 // and we will find maximum value of end
+                // between end value of current interval and newInterval
+                // and replace it with end value of newInterval
+
+
+                newInterval.end = Math.max(currInt.end,newInterval.end);
+            }
+            }
+
+            res.add(newInterval); // then finally add newInterval in res
+            return res;  // return the result;
+
+    }
+}
