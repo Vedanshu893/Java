@@ -1,0 +1,31 @@
+public class Solution {
+
+
+    public long fastPower(int A,int B,int C){
+        if (B==0) return 1;
+        long pow=fastPower(A,B/2,C)%C;
+        if (B%2==0)
+            return (pow*pow)%C;
+        else
+            return ((A*pow)%C*pow)%C;
+    }
+    public int solve(int A, int B, int C) {
+        long result;
+        if (B>A) return 0;
+       
+        long n=1,nr=1,r=1;
+        long temp=1;
+        for (int i=1;i<=A;i++)
+        {
+            n=(n*i)%C;
+            if (i==B)
+                r=n;
+            if (i==A-B)
+                nr=n;
+        }
+        long val1=fastPower((int)r,C-2,C)%C;
+        long val2=fastPower((int)nr,C-2,C)%C;
+        result=((n*val1)%C*val2)%C;
+        return (int) result;
+    }
+}
