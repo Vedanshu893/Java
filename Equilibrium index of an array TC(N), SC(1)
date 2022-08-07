@@ -1,0 +1,32 @@
+public class Solution {
+    public int solve(ArrayList<Integer> A) {
+
+        int leftsum = 0;   // initializing & declaraation for 0th index 
+        
+        int rightsum = 0;
+        for(int i=1; i<A.size(); i++)   {
+            rightsum += A.get(i);
+        }
+
+        // check for 0th index
+        if(leftsum==rightsum){
+            return 0;
+        }
+
+
+        // check for every other index
+        for(int i=1; i<A.size(); i++){
+            leftsum += A.get(i-1);
+            rightsum -= A.get(i);
+
+            if(leftsum == rightsum){
+                return i;
+            }
+
+        }
+
+        // if no index found as desired
+
+        return -1;
+    }
+}
