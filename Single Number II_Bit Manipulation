@@ -1,0 +1,11 @@
+public class Solution {
+   
+    public int singleNumber(final List<Integer> A) {
+        int ones=0,twos=0;
+        for(int i=0;i<A.size();i++){
+            ones=(ones^A.get(i))&(~twos);
+            twos=(twos^A.get(i))&(~ones);
+        }
+        return ones;
+        }
+}
