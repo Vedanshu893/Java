@@ -1,0 +1,17 @@
+public class Solution {
+    public int findMinXor(ArrayList<Integer> A) {
+
+        int[] Ar = new int[A.size()];
+
+        for(int i=0; i<A.size(); i++){
+            Ar[i] = A.get(i);
+        }
+
+        Arrays.sort(Ar);
+        int minXOR = Ar[0]^Ar[1];        
+        for(int i = 2 ; i < Ar.length ; i++){
+            minXOR = Math.min(minXOR , Ar[i]^Ar[i-1]);
+        }
+        return minXOR;
+    }
+}
