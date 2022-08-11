@@ -1,0 +1,63 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public ArrayList<Integer> solve(final List<Integer> A, final List<Integer> B) {
+
+        int[] Ar = new int[A.size()];
+        for(int i=0; i<A.size(); i++){
+            Ar[i] = A.get(i);
+        }
+
+        int[] Br = new int[B.size()];
+        for(int i=0; i<B.size(); i++){
+            Br[i] = B.get(i);
+        }
+
+
+
+
+        int result[] = new int[Ar.length+Br.length];
+        int x = 0;
+        int y=0;
+
+        for(int i=0; i< result.length; i++)
+        {
+           if(x< Ar.length && y<Br.length)
+           {
+            result[i]= Math.min(Ar[x], Br[y]);
+            if(result[i]==Ar[x])
+            x++;
+            else if(result[i]==Br[y])
+            y++;
+            else
+            {
+                x++;
+                y++;
+            }
+           }
+           else
+           {
+              if(x>=Ar.length)
+              {
+                 //copy B
+                 result[i]= Br[y];
+                 y++;
+              }
+              else
+              {
+                 //copy A
+                 result[i] = Ar[x];
+                 x++;}
+             
+           }
+
+        }
+
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        for(int i=0; i<result.length; i++){
+            res.add(result[i]);
+        }
+
+
+        return res;
+    }
+}
