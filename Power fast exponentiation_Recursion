@@ -1,0 +1,25 @@
+package com.company.Recursion;
+
+public class FindPow2 {
+    public static int pow(int a, int n){
+
+        if(n ==0){
+            return 1;
+        }
+
+        int p = pow(a,n/2);
+
+        if((a&1)==1){
+            return p*p*a;
+        }
+
+        else if((a&1)==0){
+            return p*p;
+        }
+        return 1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(pow(3,4));
+    }
+}
