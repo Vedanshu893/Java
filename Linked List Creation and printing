@@ -1,0 +1,45 @@
+package com.company.LinkedList;
+
+//Creation of Linked List for creating n nodes with elements from 1 to n
+
+public class LinkedListCreation {
+
+    public static class Node{
+        int data = 0;
+        Node next = null;
+
+        Node(int x){
+            data = x;
+            next = null;
+        }
+    }
+
+
+    public static void main(String[] args){
+
+        int n = 10;
+
+        //Initializing Head node & "temp" as obj reference
+
+        Node temp = new Node(1);
+        Node head = temp;
+
+        // Creating other nodes
+        for(int i=2; i<=n; i++){
+            temp.next = new Node(i);
+            temp = temp.next;
+        }
+
+        //Printing node elements
+        Node temp_print = head;
+        while(temp_print.next != null){
+            System.out.println(temp_print.data);
+            temp_print = temp_print.next;
+        }
+
+        // Printing tail node
+        System.out.println(temp.data);
+
+    }
+
+}
