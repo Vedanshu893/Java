@@ -1,0 +1,17 @@
+public class Solution {
+    public int solve(String A) {
+        char[] ch = A.toCharArray();
+        int ans=0;
+        int count=0;
+        int modulo = (int) Math.pow(10, 9) + 7; // this is done for the Note value
+        for(int itr=ch.length-1;itr>=0;itr--){  
+           if(ch[itr]=='G'){
+               count++;
+           }else if(ch[itr]=='A'){
+               ans=(ans+count)%modulo;
+           }
+        }  
+        return ans;
+
+    }
+}
