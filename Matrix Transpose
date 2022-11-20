@@ -1,0 +1,23 @@
+public class Solution {
+    public ArrayList<ArrayList<Integer>> solve(ArrayList<ArrayList<Integer>> A) {
+
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
+
+        int row = A.size();
+        int col = A.get(0).size();
+
+      
+        for(int j=0; j<col ; j++){
+                ans.add(j, new ArrayList<Integer>());
+            }
+
+        for(int j=0; j<col; j++){
+            for(int i=0; i<row; i++){
+                ans.get(j).add(A.get(i).get(j));
+            }
+        }    
+        
+
+        return ans;
+    }
+}
