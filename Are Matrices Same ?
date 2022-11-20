@@ -1,0 +1,23 @@
+public class Solution {
+    public int solve(ArrayList<ArrayList<Integer>> A, ArrayList<ArrayList<Integer>> B) {
+        int row1 = A.size();
+        int row2 = B.size();
+
+        int col1 = A.get(0).size();
+        int col2 = B.get(0).size();
+
+        if(row1 == row2 && col1 ==col2){
+            for(int i=0; i<row1; i++){
+                for(int j=0; j<col1; j++){
+                    if(A.get(i).get(j) != B.get(i).get(j)){
+                        return 0;
+                    }
+                }
+            }
+            return 1;
+        }
+
+        return 0;
+        
+    }
+}
