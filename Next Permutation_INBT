@@ -1,0 +1,46 @@
+public class Solution {
+    public int[] nextPermutation(int[] A) {
+        boolean reverse = findNextPermutation(A);
+        if(reverse)
+            Arrays.sort(A);
+        return A;
+    }
+    public boolean findNextPermutation(int[] arr){
+        int n = arr.length;
+        int lowerElementIndex = n-2;
+        //finding the first element which is not following the increasing order from last of the Arrays
+        //ex : 1,5,8,4,7,6,5,3,1 // element 4, index = 3 is the first element not following the increasing order
+        for(lowerElementIndex = n-2 ; lowerElementIndex >= 0 ; lowerElementIndex--){
+            if(arr[lowerElementIndex] < arr[lowerElementIndex + 1])
+                break;
+        }
+        //if the whole array is in decreasing order
+        if(lowerElementIndex == -1)
+            return true;
+
+        //need to swap lowerElementIndex with its next greater element
+        int j = n-1;
+        for(j = n-1; j >= lowerElementIndex ; j--){
+            if(arr[j] > arr[lowerElementIndex]){
+                swap(arr, lowerElementIndex , j);
+                break;
+            }
+        }
+
+        lowerElementIndex++;
+        //Now after swapping the element of next nextPermutation
+        //will swap all elements after lowerElementIndex
+        int iteration = (n - lowerElementIndex + 1) / 2;
+
+        for (int k = 0; k < iteration; k++) {
+            swap(arr, lowerElementIndex + k, n - k - 1);
+        }
+       
+        return false;
+    }
+    public void swap(int[] arr, int i , int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
