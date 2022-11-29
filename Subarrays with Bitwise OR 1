@@ -1,0 +1,26 @@
+public class Solution {
+    public Long solve(int A, ArrayList<Integer> B) {
+
+        long n = (long)A;
+        long subarrays = (n*(n+1))/2;
+        long zeros = 0;
+        long count = 0;
+
+        for(long x : B){
+            if(x ==0){
+                zeros += 1; 
+            }
+
+            else{
+                count += (zeros*(zeros+1))/2;
+                zeros = 0;
+            }
+
+        }
+
+        count += (zeros*(zeros+1))/2;
+
+        return subarrays - count ;
+        
+    }
+}
