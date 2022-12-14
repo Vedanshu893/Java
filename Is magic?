@@ -1,0 +1,39 @@
+public class Solution {
+
+      public static int adddigit(int N){
+            
+            if(N<10){
+                return N;
+            }
+
+           return(adddigit(N/10) + N%10);
+        }
+
+
+
+
+        public static int solve1(int A){
+            
+            int ans = adddigit(A);
+            
+            if(ans <10){
+            return ans;
+        }
+
+        return (solve1(ans));
+
+        }
+
+    public int solve(int A) {
+        int sum = solve1(A);
+        
+        if(sum==1){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+       
+
+    }
+}
