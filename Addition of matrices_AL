@@ -1,0 +1,13 @@
+public class Solution {
+    public ArrayList<ArrayList<Integer>> solve(ArrayList<ArrayList<Integer>> A, ArrayList<ArrayList<Integer>> B) {
+        //Anchal
+        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+        for(int i=0;i<A.size();i++){
+            res.add(i,new ArrayList<Integer>());
+            for(int j=0;j<A.get(i).size();j++){
+                res.get(i).add( j , A.get(i).get(j)+B.get(i).get(j) );
+            }
+        }
+        return res;
+    }
+}
