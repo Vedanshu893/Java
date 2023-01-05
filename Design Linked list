@@ -1,0 +1,92 @@
+# Definition for singly-linked list.
+class ListNode:
+   def __init__(self, x):
+       self.val = x
+       self.next = None
+class LL:
+    def __init__(self):
+        self.head = None
+        self.length = 0
+       
+    def insertfront(self,val):
+        newNode = ListNode(val)
+        if self.head:
+            newNode.next = self.head
+            self.head = newNode
+            self.length += 1
+        else:
+            self.head = newNode
+            self.length += 1
+           
+    def insertend(self,val):
+        newNode = ListNode(val)
+        if self.head:
+            temp = self.head
+            while temp.next:
+                temp = temp.next
+            temp.next = newNode
+            self.length += 1
+        else:
+            self.head = newNode
+            self.length += 1
+       
+           
+    def getlen(self):
+        return self.length
+       
+    def insertpos(self,pos,val):
+        newNode = ListNode(val)
+        if pos > self.getlen():
+            return
+        if pos == 0:
+            self.insertfront(val)
+            return
+
+        c = 0
+        temp = self.head
+        while c < pos -1:
+            temp = temp.next
+            c += 1
+        newNode.next = temp.next
+        temp.next = newNode
+        self.length += 1
+       
+    def delete(self,pos):
+        if pos > self.getlen():
+            return
+        temp = self.head
+        if pos == 0:
+            newhead = temp.next
+            self.head = newhead
+            self.length -= 1
+        else:
+            c = 0
+            while c < pos-1:
+                temp = temp.next
+                c += 1
+            newval = temp.next.next
+            temp.next = newval
+            self.length -= 1
+       
+
+class Solution:
+    # @param A : list of list of integers
+    # @return the head node in the linked list
+    def solve(self, A):
+        ll = LL()
+        row = len(A)
+        for i in range(row):
+            if A[i][0] == 0 and A[i][2] == -1:
+                ll.insertfront(A[i][1])
+           
+            elif A[i][0] == 1 and A[i][2] == -1:
+                ll.insertend(A[i][1])
+
+
+            elif A[i][0] == 2:
+                ll.insertpos(A[i][2],A[i][1])
+
+            elif A[i][0] == 3 and A[i][2] == -1:
+                ll.delete(A[i][1])
+
+        return ll.head
