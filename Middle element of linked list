@@ -1,0 +1,35 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     ListNode(int x) { val = x; next = null; }
+ * }
+ */
+public class Solution {
+    public int solve(ListNode A) {
+        int count = 0;
+
+        ListNode counter;
+        ListNode pointer;
+
+        counter = A;
+        pointer = A;
+        
+        while(counter != null ){
+            counter = counter.next;
+            count +=  1;
+        }
+
+        // Find middle element 
+        int mid = count/2 + 1;
+
+        for(int i=1; i<mid ; i++){
+            pointer = pointer.next;
+        }
+
+        return pointer.val ;
+
+
+    }
+}
