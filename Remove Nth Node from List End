@@ -1,0 +1,77 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     ListNode(int x) { val = x; next = null; }
+ * }
+ */
+public class Solution {
+
+    public static int SizeLL(ListNode head){
+        int size = 0;
+        ListNode temp = head;
+
+        while(temp != null){
+            temp = temp.next;
+            size += 1;
+        }
+        return size;
+    }
+
+    public static ListNode deletenode(ListNode A, int position){
+        //1- Delete Head node i.e. position ==1
+        //2- In btw node i.e. position >=2 && < size
+        //3- Delete Tail node
+        //4- Question constraint
+
+        ListNode curr = A;  //Head Node is A
+        ListNode prev = null;
+        int count = 1;
+        int size = SizeLL(A);
+
+        if(position ==1){
+            curr = curr.next;
+            A = curr;
+        }
+
+        else if(position >=2 && position <= size){
+
+            while(curr != null && count < position){
+                prev = curr;
+                curr = curr.next;
+                count += 1;
+            }
+
+            prev.next = curr.next;
+
+        }
+
+        else{
+            return A;
+        }
+
+        return A;
+
+
+
+
+    }
+
+
+
+    public ListNode removeNthFromEnd(ListNode A, int B) {
+
+        int size = SizeLL(A);
+        int del_index = size-B+1;
+
+        if(del_index <=0){
+            del_index = 1;
+        }
+
+        ListNode ans = deletenode(A, del_index);
+
+        return ans;
+
+    }
+}
