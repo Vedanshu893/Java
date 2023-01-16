@@ -1,0 +1,28 @@
+public class Solution {
+    public ArrayList<Integer> solve(int A) {
+        Queue<Integer> queue=new LinkedList<>();
+        ArrayList<Integer> list=new ArrayList<>();
+        int count=0;
+        for(int i=1;i<=3;i++){
+            queue.add(i);
+            count++;
+            list.add(i);
+            if(count==A){
+                return list;
+            }
+        }
+        while(count!=A){
+            int currentElement=queue.poll();
+            for(int i=1;i<=3;i++){
+            int addedValue=currentElement*10+i;
+            queue.add(addedValue);
+            count++;
+            list.add(addedValue);
+            if(count==A){
+                return list;
+            }
+            }
+        }
+        return list;
+    }
+}
